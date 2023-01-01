@@ -1,0 +1,40 @@
+﻿@model List<HomeIndexDTO>
+
+
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Actions</th>
+            <th><button type="button" id="ekle" class="btn btn-outline-success">Ekle</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-outline-warning">Güncelle</button>
+                      <button type="button" class="btn btn-outline-danger">Sil</button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script type="text/javascript">
+    $('#ekle').click(function(){
+        $('#myModal .modal-body').html("<form><div class='form-floating mb-3'><input type='text' class='form-control' id='floatingInput' placeholder=' ' name='Name'><label for='floatingInput'> Hesap Kart Tip Adı </label></div></form>");
+        $('#myModal .modal-footer').html("<button type='button' id='hesapTipEkle' class='btn btn-outline-success'>Save changes</button>");
+        hesapkarttip.Ekle();
+        $('#myModal').modal('show');
+    });
+   
+   
+</script>
